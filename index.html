@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junlong Ning — Robotics × AI</title>
+<meta name="description" content="Junlong Ning — Robotics Engineering, CMU MS in AI Engineering (incoming). Research in embodied AI, uncertainty quantification, and multimodal models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint:#123A63;
+    --blueprint-deep:#0C2A49;
+    --line:#9FC7EC;
+    --line-bright:#DCEBFA;
+    --paper:#F5F6F1;
+    --paper-raised:#FFFFFF;
+    --ink:#1C232B;
+    --ink-soft:#5B6672;
+    --rule:#D6D9D2;
+    --teal:#2F8F7B;
+    --amber:#E2A63B;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+  ::selection{background:var(--line);color:var(--blueprint-deep);}
+
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+
+  /* ---------- HERO / TITLE BLOCK ---------- */
+  .hero{
+    background:
+      linear-gradient(var(--blueprint), var(--blueprint)),
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(159,199,236,0.14) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(159,199,236,0.14) 28px);
+    color:var(--line-bright);
+    position:relative;
+    padding:clamp(28px, 6vw, 56px) clamp(20px, 6vw, 64px) 0;
+    border-bottom:3px solid var(--line-bright);
+  }
+  .hero .crop-l, .hero .crop-r, .hero .crop-tl, .hero .crop-tr{
+    content:"";
+    position:absolute;
+    width:18px; height:18px;
+    border:1.5px solid var(--line-bright);
+    opacity:.7;
+  }
+  .hero .crop-tl{ top:14px; left:14px; border-right:none; border-bottom:none; }
+  .hero .crop-tr{ top:14px; right:14px; border-left:none; border-bottom:none; }
+  .hero .crop-l{ bottom:14px; left:14px; border-right:none; border-top:none; }
+  .hero .crop-r{ bottom:14px; right:14px; border-left:none; border-top:none; }
+
+  .hero-inner{ max-width:960px; margin:0 auto; padding-bottom:40px; }
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--line);
+    margin:0 0 18px;
+  }
+  .eyebrow span{ color:var(--line-bright); }
+  .hero h1{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    line-height:1.05;
+    margin:0 0 10px;
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+  .hero .tagline{
+    font-size:clamp(1rem, 2.4vw, 1.2rem);
+    color:var(--line-bright);
+    max-width:46ch;
+    margin:0 0 6px;
+    font-weight:400;
+  }
+  .hero .sub{ color:var(--line); font-size:.92rem; max-width:52ch; }
+
+  .titleblock{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border:1px solid rgba(220,235,250,.45);
+    margin-top:32px;
+    font-size:.78rem;
+  }
+  .titleblock div{
+    padding:10px 14px;
+    border-right:1px solid rgba(220,235,250,.45);
+  }
+  .titleblock div:last-child{ border-right:none; }
+  .titleblock .field-label{
+    display:block;
+    color:var(--line);
+    letter-spacing:.08em;
+    font-size:.66rem;
+    margin-bottom:4px;
+  }
+  .titleblock .field-value{ color:var(--line-bright); font-weight:500; }
+  .titleblock .field-value a{ color:var(--line-bright); text-decoration-color:rgba(220,235,250,.5); }
+
+  @media (max-width:640px){
+    .titleblock{ grid-template-columns:repeat(2, 1fr); }
+    .titleblock div:nth-child(2){ border-right:none; }
+  }
+
+  /* ---------- CONTENT ---------- */
+  main{ max-width:960px; margin:0 auto; padding:0 clamp(20px, 6vw, 64px); }
+
+  section{ padding:52px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    color:var(--teal);
+    letter-spacing:.05em;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.5rem;
+    margin:0;
+    font-weight:600;
+  }
+
+  .about p{ max-width:66ch; color:var(--ink); font-size:1.02rem; }
+  .about p + p{ margin-top:14px; }
+
+  /* research entries as "component specs" */
+  .spec{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:20px;
+    padding:20px 0;
+    border-top:1px dashed var(--rule);
+  }
+  .spec:first-of-type{ border-top:none; }
+  .spec-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    color:var(--teal);
+    background:rgba(47,143,123,.08);
+    border:1px solid rgba(47,143,123,.25);
+    border-radius:var(--radius);
+    padding:4px 8px;
+    height:fit-content;
+    text-align:center;
+  }
+  .spec-title{ font-weight:600; margin:0 0 4px; font-size:1.02rem; }
+  .spec-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.74rem;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+    display:block;
+  }
+  .spec-desc{ margin:0; color:var(--ink); font-size:.95rem; max-width:64ch; }
+
+  @media (max-width:560px){
+    .spec{ grid-template-columns:1fr; gap:8px; }
+    .spec-tag{ width:fit-content; }
+  }
+
+  /* experience */
+  .exp-role{ font-weight:600; font-size:1.05rem; margin:0; }
+  .exp-org{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:2px 0 14px;
+  }
+  .exp ul{ margin:0; padding-left:20px; }
+  .exp li{ margin-bottom:8px; font-size:.95rem; }
+
+  /* publications */
+  .pubs{ list-style:none; margin:0; padding:0; }
+  .pubs li{
+    padding:14px 0;
+    border-top:1px dashed var(--rule);
+    font-size:.94rem;
+  }
+  .pubs li:first-child{ border-top:none; }
+  .pub-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--amber);
+    border:1px solid rgba(226,166,59,.4);
+    background:rgba(226,166,59,.08);
+    padding:2px 6px;
+    border-radius:var(--radius);
+    margin-right:10px;
+    vertical-align:middle;
+  }
+
+  /* bill of materials / skills */
+  .bom{ width:100%; border-collapse:collapse; font-size:.92rem; }
+  .bom caption{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    color:var(--ink-soft);
+    letter-spacing:.06em;
+    margin-bottom:12px;
+  }
+  .bom th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    padding:8px 12px;
+    border-bottom:1px solid var(--ink);
+  }
+  .bom td{
+    padding:11px 12px;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  .bom td:first-child{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    color:var(--teal);
+    white-space:nowrap;
+    width:1%;
+  }
+
+  /* footer / contact title block */
+  footer{
+    background:var(--blueprint-deep);
+    color:var(--line-bright);
+    margin-top:0;
+    padding:44px clamp(20px, 6vw, 64px) 30px;
+  }
+  .footer-inner{ max-width:960px; margin:0 auto; }
+  footer h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.3rem;
+    margin:0 0 6px;
+  }
+  footer .foot-sub{ color:var(--line); font-size:.9rem; margin-bottom:26px; }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid rgba(220,235,250,.3);
+    border-bottom:1px solid rgba(220,235,250,.3);
+  }
+  .contact-grid a{
+    display:block;
+    padding:16px 4px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.8rem;
+    color:var(--line-bright);
+    text-decoration:none;
+    border-right:1px solid rgba(220,235,250,.3);
+  }
+  .contact-grid a:last-child{ border-right:none; }
+  .contact-grid a:hover, .contact-grid a:focus-visible{ background:rgba(220,235,250,.08); }
+  .contact-grid a span{ display:block; font-size:.64rem; color:var(--line); letter-spacing:.08em; margin-bottom:4px; text-transform:uppercase; }
+  @media (max-width:640px){ .contact-grid{ grid-template-columns:repeat(2, 1fr); } }
+
+  .fine-print{
+    margin-top:24px;
+    font-size:.72rem;
+    color:var(--line);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="crop-tl"></span><span class="crop-tr"></span><span class="crop-l"></span><span class="crop-r"></span>
+  <div class="hero-inner">
+    <p class="eyebrow">Personal Record &nbsp;/&nbsp; <span>Robotics Engineering → AI Engineering</span></p>
+    <h1 class="display">Junlong Ning</h1>
+    <p class="tagline">Building calibrated, embodied AI systems — from ROS stacks to language-model agents.</p>
+    <p class="sub mono">Pittsburgh, PA &nbsp;·&nbsp; Open to MLE / AIE internships</p>
+
+    <div class="titleblock mono">
+      <div>
+        <span class="field-label">Program</span>
+        <span class="field-value">CMU · MS, AI Engineering</span>
+      </div>
+      <div>
+        <span class="field-label">Status</span>
+        <span class="field-value">Incoming — Aug 2026</span>
+      </div>
+      <div>
+        <span class="field-label">Base</span>
+        <span class="field-value">B.E. Robotics Eng., CQU</span>
+      </div>
+      <div>
+        <span class="field-label">Contact</span>
+        <span class="field-value"><a href="mailto:njl1124558276@gmail.com">Email</a></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="section-num mono">§ 01</span>
+      <h2>About</h2>
+    </div>
+    <p>I'm an incoming MS student in AI Engineering at Carnegie Mellon University, coming from a Robotics Engineering background (Honors College, Chongqing University). My work sits at the intersection of embodied AI, uncertainty quantification, and multimodal models — teaching agents to know what they don't know, and to act accordingly.</p>
+    <p>Recent research spans conformal-prediction-gated navigation for vision-language models, multimodal forgery detection, and evaluation frameworks for frontier MLLMs on spatial reasoning. On the systems side, I've shipped a production-style multi-tool LLM agent and built full-stack autonomous racing software on embedded hardware.</p>
+  </section>
+
+  <section id="research">
+    <div class="section-head">
+      <span class="section-num mono">§ 02</span>
+      <h2>Research</h2>
+    </div>
+
+    <div class="spec">
+      <span class="spec-tag">W2A</span>
+      <div>
+        <p class="spec-title">When2Ask: Uncertainty-Aware Interactive Navigation for VLMs in Urban Scenes</p>
+        <span class="spec-meta">Co-First Author · New York University · Advised by Prof. Chen Feng · Oct 2024 – Mar 2025</span>
+        <p class="spec-desc">A conformal-prediction module gates a navigation agent's action policy, escalating to a human only when calibrated uncertainty exceeds a threshold — a +25pp success-rate improvement over relevance/entropy baselines across five cities on the V-IRL platform.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <span class="spec-tag">V2V</span>
+      <div>
+        <p class="spec-title">View2Verify: Forged Image Detection, Localization &amp; Interpretation via VLMs</p>
+        <span class="spec-meta">Undergraduate Thesis · Chongqing University · Advised by Assoc. Prof. Xiangpeng Li · Sep 2025 – May 2026</span>
+        <p class="spec-desc">A dual-stream framework fusing CLIP-ViT semantics with SRM frequency-domain analysis, LoRA-tuned on LLaVA-1.5-7B. 87.16% accuracy on FaceForensics++ (FakeClue), outperforming LLaVA-1.5, InternVL2-8B, and DeepSeek-VL2-Tiny.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <span class="spec-tag">SPE</span>
+      <div>
+        <p class="spec-title">Spatial Performance Evaluation of MLLMs in Outdoor Street Scenes</p>
+        <span class="spec-meta">Research Assistant · New York University · Advised by Prof. Saining Xie &amp; Prof. Chen Feng · Jan – Mar 2025</span>
+        <p class="spec-desc">A standardized evaluation framework benchmarking spatial understanding in GPT-4V, Gemini, and Claude on real street scenes, surfacing failure modes relevant to embodied-agent development.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <span class="spec-tag">RRC</span>
+      <div>
+        <p class="spec-title">RoboRacer Autonomous Racing Stack</p>
+        <span class="spec-meta">UCInspire Program · UC Irvine · Advised by Prof. Yasser Shoukry · Jun – Sep 2025</span>
+        <p class="spec-desc">Full-stack autonomous navigation on Jetson NX: LiDAR-based PID wall-following, Hector-SLAM + EKF localization, and RRT* trajectory planning, validated in F1Tenth Gym before sim-to-real deployment.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <span class="spec-tag">BMR</span>
+      <div>
+        <p class="spec-title">Biomimetic Microrobots for Navigation in Viscous Fluids</p>
+        <span class="spec-meta">Team Lead · Advised by Prof. Zijie Qu (SJTU) · Mar – Aug 2024 · Published, IEEE ICARA 2025</span>
+        <p class="spec-desc">Bacteria-inspired locomotion design for low-Reynolds-number environments, from geometric modeling through fabrication and motion-characterization experiments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp" id="experience">
+    <div class="section-head">
+      <span class="section-num mono">§ 03</span>
+      <h2>Industry Experience</h2>
+    </div>
+    <p class="exp-role">MLE Intern — Production-Style AI Investment Agent</p>
+    <p class="exp-org">Innovation AI · San Jose, CA · May – Aug 2026</p>
+    <ul>
+      <li>Built a ReAct agent on LangGraph StateGraph orchestrating a 5-tool graph (price, sentiment, quant, retrieval, memory) with conditional error-fallback edges and full LangSmith tracing.</li>
+      <li>Designed a FinBERT sentiment tool and an XGBoost/LightGBM predictor wrapped with SHAP explainability, each returning a prediction with a human-readable justification.</li>
+      <li>Shipped behind a FastAPI + SSE streaming backend with Redis caching and CI/CD; built an evaluation harness surfacing a real signal-groundedness gap (93% groundedness, 13.6s avg. latency).</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <div class="section-head">
+      <span class="section-num mono">§ 04</span>
+      <h2>Publications</h2>
+    </div>
+    <ul class="pubs">
+      <li><span class="pub-tag">In Prep</span>J. Ning, Y. Li, et al. <em>When2Ask: Uncertainty-aware interactive navigation in urban scenes.</em> Manuscript in preparation.</li>
+      <li><span class="pub-tag">Thesis</span>J. Ning, X. Li. <em>Research on Forged Image Detection, Localization, and Interpretation Based on Vision-Language Models.</em> Undergraduate Thesis.</li>
+      <li><span class="pub-tag">ICARA '25</span>J. Ning. <em>Biomimetic Microrobots for Navigation in Viscous Fluids: Inspired by Bacterial Locomotion.</em> IEEE International Conference on Automation, Robotics and Applications.</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num mono">§ 05</span>
+      <h2>Bill of Materials</h2>
+    </div>
+    <table class="bom">
+      <caption>Tools &amp; methods, by category</caption>
+      <thead>
+        <tr><th>Item</th><th>Spec</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Languages</td><td>Python, C++/C, MATLAB</td></tr>
+        <tr><td>ML Frameworks</td><td>PyTorch, HuggingFace Transformers, DeepSpeed (ZeRO-2), PEFT/LoRA</td></tr>
+        <tr><td>Agent / Infra</td><td>LangGraph (ReAct/StateGraph), FastAPI, Docker, LangSmith, Redis</td></tr>
+        <tr><td>Robotics</td><td>ROS / ROS2, Gazebo, NVIDIA Jetson NX, Hector-SLAM, EKF</td></tr>
+        <tr><td>ML Methods</td><td>Conformal Prediction, Multimodal Fusion, Uncertainty Quantification, SHAP</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h2 class="display">Get in touch</h2>
+    <p class="foot-sub">Open to research collaboration, internships, and conversations about embodied AI, evaluation, and privacy in agentic systems.</p>
+    <div class="contact-grid">
+      <a href="mailto:njl1124558276@gmail.com"><span>Email</span>njl1124558276@gmail.com</a>
+      <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener"><span>GitHub</span>github.com/…</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener"><span>LinkedIn</span>linkedin.com/in/…</a>
+      <a href="assets/Junlong_Ning_Resume.pdf" target="_blank" rel="noopener"><span>CV</span>Download PDF</a>
+    </div>
+    <p class="fine-print">Updated July 2026 · Built with plain HTML/CSS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+</body>
+</html>
