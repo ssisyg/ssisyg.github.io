@@ -3,65 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d10">
-  <meta name="description" content="Junlong Ning is an AI engineer and robotics researcher working on agentic AI, multimodal models, uncertainty, and embodied intelligence.">
-  <meta property="og:title" content="Junlong Ning — AI Engineer & Researcher">
-  <meta property="og:description" content="Agentic AI, multimodal learning, uncertainty, and embodied intelligence.">
+  <meta name="theme-color" content="#2f4356">
+  <meta name="description" content="Junlong Ning is an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working on embodied AI, vision-language models, and trustworthy machine learning.">
+  <meta property="og:title" content="Junlong Ning — Personal Website">
+  <meta property="og:description" content="Embodied AI, Vision-Language Models, and Trustworthy Machine Learning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ssisyg.github.io/">
-  <title>Junlong Ning — AI Engineer & Researcher</title>
+  <title>Junlong Ning — Personal Website</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #0b0d10;
-      --surface: #11151a;
-      --surface-2: #151a21;
-      --text: #f3f5f7;
-      --muted: #9aa4af;
-      --line: #272e37;
-      --accent: #82aaff;
-      --accent-soft: rgba(130, 170, 255, 0.12);
-      --max: 1040px;
+      color-scheme: light;
+      --navy: #2f4356;
+      --navy-dark: #243646;
+      --ink: #3c4b57;
+      --heading: #2f404e;
+      --muted: #6e7b85;
+      --link: #176b78;
+      --line: #dfe4e7;
+      --paper: #ffffff;
+      --page: #f7f8f8;
+      --max: 940px;
     }
 
     * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 84px;
+      scroll-padding-top: 82px;
     }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.72;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
 
     a:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid #8bb9c0;
       outline-offset: 4px;
     }
 
     .skip-link {
       position: fixed;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       z-index: 100;
       padding: 8px 12px;
-      background: var(--text);
-      color: var(--bg);
+      background: #fff;
+      color: var(--navy);
       transform: translateY(-160%);
     }
 
     .skip-link:focus { transform: translateY(0); }
 
-    .wrap {
+    .container {
       width: min(calc(100% - 40px), var(--max));
       margin-inline: auto;
     }
@@ -70,482 +76,299 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(39, 46, 55, 0.85);
-      background: rgba(11, 13, 16, 0.9);
-      backdrop-filter: blur(14px);
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
     }
 
-    .nav {
-      min-height: 68px;
+    nav {
+      min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 32px;
     }
 
     .brand {
-      text-decoration: none;
-      font-weight: 720;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
     }
+
+    .brand:hover { text-decoration: none; }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
-      list-style: none;
+      gap: 30px;
       margin: 0;
       padding: 0;
+      list-style: none;
     }
 
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    main { overflow: hidden; }
-
-    .hero {
-      padding: 112px 0 88px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      color: var(--accent);
+      color: #fff;
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+    }
+
+    main {
+      min-height: calc(100vh - 130px);
+      background: var(--paper);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 70px;
+      align-items: center;
+      padding: 78px 0 64px;
+    }
+
+    .name-block {
+      padding-right: 36px;
+      border-right: 1px solid var(--line);
     }
 
     h1 {
-      max-width: 780px;
       margin: 0;
-      font-size: clamp(48px, 8vw, 84px);
-      line-height: 0.98;
-      letter-spacing: 0;
+      color: #1f2f3b;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
     }
 
-    .hero-copy {
-      max-width: 760px;
-      margin: 30px 0 0;
-      color: #c8ced6;
-      font-size: clamp(19px, 2.5vw, 25px);
-      line-height: 1.5;
-    }
-
-    .hero-copy strong { color: var(--text); font-weight: 650; }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 36px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 650;
-      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
-    }
-
-    .button:hover {
-      border-color: #46515f;
-      background: var(--surface-2);
-      transform: translateY(-1px);
-    }
-
-    .button.primary {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #08101e;
-    }
-
-    .button.primary:hover { background: #9abaff; }
-
-    .quick-facts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      margin: 42px 0 0;
-      padding: 0;
-      list-style: none;
+    .chinese-name {
+      display: block;
+      margin-top: 10px;
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .quick-facts li {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .quick-facts li::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
-    }
-
-    section {
-      padding: 88px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 48px;
-    }
-
-    .section-label {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0 0 24px;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.15;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      max-width: 760px;
-      margin: 0;
-      color: #c8ced6;
-      font-size: 19px;
-    }
-
-    .lead + .lead { margin-top: 18px; }
-
-    .focus-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      margin-top: 42px;
-      border: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .focus-item {
-      min-width: 0;
-      padding: 24px;
-      background: var(--surface);
-    }
-
-    .focus-item h3 {
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-
-    .focus-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .project-list,
-    .timeline { border-top: 1px solid var(--line); }
-
-    .project {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project h3 {
-      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 20px;
-      line-height: 1.35;
+      font-weight: 400;
+      letter-spacing: 0.08em;
     }
 
-    .meta {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .project p {
-      max-width: 700px;
-      margin: 14px 0 0;
-      color: #bcc4cd;
-      font-size: 15px;
-    }
-
-    .project-link {
-      align-self: start;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    a.project-link:hover { text-decoration: underline; }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr);
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .timeline-date {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .timeline-item h3 {
-      margin: 0;
+    .bio-lines p {
+      margin: 0 0 7px;
+      color: #55636d;
       font-size: 17px;
     }
 
-    .timeline-item p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 14px;
+    .contact-line {
+      margin-top: 24px !important;
+      color: var(--muted) !important;
+      font-size: 15px !important;
     }
 
-    .skills {
+    .contact-line span {
+      margin: 0 8px;
+      color: #a5afb6;
+    }
+
+    section {
+      padding: 42px 0 22px;
+    }
+
+    section + section {
+      padding-top: 48px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    .section-rule {
+      width: 48px;
+      height: 2px;
+      margin: -10px 0 28px;
+      background: #91a7b5;
+    }
+
+    section p {
+      margin: 0 0 18px;
+    }
+
+    .interest-list {
+      margin: 27px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .interest-list li {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px 36px;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 28px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .skill-group {
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-    }
-
-    .skill-group h3 {
-      margin: 0 0 7px;
-      font-size: 14px;
-    }
-
-    .skill-group p {
+    .interest-list h3 {
       margin: 0;
-      color: var(--muted);
-      font-size: 14px;
+      color: var(--heading);
+      font-size: 16px;
+      line-height: 1.55;
     }
 
-    .publication {
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
+    .interest-list p {
+      margin: 0;
+      color: #596873;
+      font-size: 15px;
     }
 
-    .publication:last-child { border-bottom: 1px solid var(--line); }
-    .publication p { margin: 0; }
-    .publication .venue { color: var(--muted); font-size: 13px; margin-top: 5px; }
-
-    .contact { padding-bottom: 104px; }
-
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 28px;
-      margin-top: 30px;
+    .about {
+      padding-bottom: 82px;
     }
 
-    .contact-row a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
+    .about p {
+      max-width: 900px;
     }
-
-    .contact-row a:hover { text-decoration: underline; }
 
     footer {
-      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
       color: var(--muted);
       font-size: 13px;
     }
 
-    .footer-row {
+    .footer-inner {
+      min-height: 70px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
 
-    @media (max-width: 760px) {
-      .wrap { width: min(calc(100% - 28px), var(--max)); }
-      .nav { min-height: 60px; }
-      .nav-links li:not(:last-child) { display: none; }
-      .hero { padding: 82px 0 68px; }
-      .hero-copy { margin-top: 24px; }
-      section { padding: 66px 0; }
-      .section-grid { grid-template-columns: 1fr; gap: 20px; }
-      .section-label { margin: 0; }
-      .focus-list,
-      .skills { grid-template-columns: 1fr; }
-      .project { grid-template-columns: 1fr; gap: 12px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
-      .footer-row { flex-direction: column; gap: 6px; }
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+
+      nav { min-height: 54px; }
+
+      .nav-links { gap: 17px; }
+
+      .nav-links li:first-child { display: none; }
+
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 56px 0 40px;
+      }
+
+      .name-block {
+        padding: 0 0 26px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .bio-lines p { font-size: 16px; }
+
+      .contact-line span { margin: 0 5px; }
+
+      section { padding-top: 38px; }
+
+      .interest-list li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .about { padding-bottom: 62px; }
+
+      .footer-inner {
+        min-height: 82px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header>
-    <nav class="nav wrap" aria-label="Main navigation">
-      <a class="brand" href="#top">Junlong Ning</a>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">JUNLONG NING</a>
       <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#background">Background</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="assets/Junlong_Ning_Resume.pdf" download>Resume ↓</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="assets/Junlong_Ning_Resume.pdf">CV</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="content">
-    <div class="hero" id="top">
-      <div class="wrap">
-        <p class="eyebrow">AI Engineer · Robotics Researcher</p>
-        <h1>Junlong Ning</h1>
-        <p class="hero-copy">I build <strong>reliable AI agents and multimodal systems</strong> that can reason about uncertainty, ask for help, and act in the physical world.</p>
-        <div class="actions">
-          <a class="button primary" href="assets/Junlong_Ning_Resume.pdf" download>Download resume</a>
-          <a class="button" href="https://github.com/ssisyg" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="button" href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="button" href="mailto:junlongn@andrew.cmu.edu">Email</a>
+  <main id="main-content">
+    <div class="container">
+      <section class="intro" id="home" aria-labelledby="name-heading">
+        <div class="name-block">
+          <h1 id="name-heading">Junlong Ning <span class="chinese-name">宁俊龙</span></h1>
         </div>
-        <ul class="quick-facts" aria-label="Current status">
-          <li>CMU M.S. in AI Engineering</li>
-          <li>Pittsburgh, PA</li>
-          <li>Graduating Dec 2027</li>
-        </ul>
-      </div>
-    </div>
-
-    <section id="about">
-      <div class="wrap section-grid">
-        <p class="section-label">About</p>
-        <div>
-          <h2>From robotics to trustworthy AI.</h2>
-          <p class="lead">I am an AI engineer and researcher with a foundation in robotics. My work sits at the intersection of agentic AI, vision-language models, uncertainty quantification, and embodied intelligence.</p>
-          <p class="lead">I care about systems that do more than produce an answer: they should know when they are uncertain, explain why they acted, and stay dependable outside a clean benchmark.</p>
-          <div class="focus-list">
-            <article class="focus-item"><h3>Agentic AI</h3><p>Tool-using agents, RAG, memory, evaluation, and production inference systems.</p></article>
-            <article class="focus-item"><h3>Multimodal Learning</h3><p>Vision-language models for perception, localization, and grounded reasoning.</p></article>
-            <article class="focus-item"><h3>Trustworthy ML</h3><p>Conformal prediction, calibrated uncertainty, and interpretable decisions.</p></article>
-            <article class="focus-item"><h3>Embodied AI</h3><p>Navigation, spatial understanding, robotics, and real-world deployment.</p></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="wrap section-grid">
-        <p class="section-label">Selected work</p>
-        <div>
-          <h2>Research and engineering</h2>
-          <div class="project-list">
-            <article class="project">
-              <div><h3>Production-style AI investment agent</h3><p class="meta">Innovation AI · Machine Learning Engineer Intern · 2026</p><p>Built a LangGraph ReAct agent across price, sentiment, quantitative, retrieval, and memory tools. Shipped it behind FastAPI with SSE streaming, Redis caching, LangSmith tracing, and an evaluation harness reaching 93% groundedness.</p></div>
-              <span class="project-link" aria-label="Private industry project">Industry</span>
-            </article>
-            <article class="project">
-              <div><h3>When2Ask: uncertainty-aware navigation</h3><p class="meta">New York University · Co-first author · 2024–2025</p><p>Designed a navigation agent that treats asking a human as a first-class action. A multi-step conformal prediction module gates assistance, improving success rate by an average of 25 percentage points across five cities.</p></div>
-              <span class="project-link" aria-label="Manuscript in preparation">In preparation</span>
-            </article>
-            <article class="project">
-              <div><h3>View2Verify: forged image detection and localization</h3><p class="meta">Chongqing University · Undergraduate thesis · 2025–2026</p><p>Proposed a dual-stream multimodal framework combining CLIP-ViT semantics with frequency-domain evidence. LoRA-tuned LLaVA-1.5-7B under a single-GPU constraint and achieved 87.16% accuracy on the FakeClue subset.</p></div>
-              <a class="project-link" href="https://github.com/ssisyg/VLM-4-Deepfake" target="_blank" rel="noreferrer">View repository ↗</a>
-            </article>
-            <article class="project">
-              <div><h3>Autonomous racing and robotic navigation</h3><p class="meta">Robotics engineering · ROS / LiDAR / Jetson NX</p><p>Developed perception, localization, planning, and control components for F1/10-scale autonomous racing, carrying ideas from simulation toward embedded deployment.</p></div>
-              <a class="project-link" href="https://github.com/ssisyg/RoboRacer" target="_blank" rel="noreferrer">View repository ↗</a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="background">
-      <div class="wrap section-grid">
-        <p class="section-label">Background</p>
-        <div>
-          <h2>Education and experience</h2>
-          <div class="timeline">
-            <article class="timeline-item"><div class="timeline-date">2026 — 2027</div><div><h3>Carnegie Mellon University</h3><p>M.S. in Artificial Intelligence Engineering · Pittsburgh, PA</p></div></article>
-            <article class="timeline-item"><div class="timeline-date">May — Aug 2026</div><div><h3>Innovation AI</h3><p>Machine Learning Engineer Intern · Agent systems and applied ML</p></div></article>
-            <article class="timeline-item"><div class="timeline-date">2024 — 2025</div><div><h3>New York University</h3><p>Research Assistant · VLM navigation, uncertainty, and spatial evaluation</p></div></article>
-            <article class="timeline-item"><div class="timeline-date">2022 — 2026</div><div><h3>Chongqing University</h3><p>B.E. in Robotics Engineering · Chongqing, China</p></div></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap section-grid">
-        <p class="section-label">Skills</p>
-        <div>
-          <h2>Tools I work with</h2>
-          <div class="skills">
-            <div class="skill-group"><h3>Machine learning</h3><p>PyTorch, Hugging Face, DeepSpeed, PEFT/LoRA, conformal prediction, multimodal fusion</p></div>
-            <div class="skill-group"><h3>Agents and infrastructure</h3><p>LangGraph, FastAPI, Redis, Docker, GitHub Actions, LangSmith, RAG, SHAP</p></div>
-            <div class="skill-group"><h3>Languages</h3><p>Python, C++, C, MATLAB</p></div>
-            <div class="skill-group"><h3>Robotics and vision</h3><p>ROS / ROS2, OpenCV, NVIDIA Jetson NX, Linux</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="wrap section-grid">
-        <p class="section-label">Publications</p>
-        <div>
-          <h2>Writing and research</h2>
-          <article class="publication"><p><strong>When2Ask: Uncertainty-Aware Interactive Navigation in Urban Scenes</strong></p><p class="venue">J. Ning, Y. Li, et al. · Manuscript in preparation</p></article>
-          <article class="publication"><p><strong>Biomimetic Microrobots for Navigation in Viscous Fluids: Inspired by Bacterial Locomotion</strong></p><p class="venue">J. Ning · IEEE ICARA 2025</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap section-grid">
-        <p class="section-label">Contact</p>
-        <div>
-          <h2>Let’s build reliable intelligent systems.</h2>
-          <p class="lead">I am open to research collaboration and conversations about agentic AI, multimodal learning, and embodied intelligence.</p>
-          <div class="contact-row">
+        <div class="bio-lines">
+          <p>M.S. Student in Artificial Intelligence Engineering, Carnegie Mellon University</p>
+          <p>B.E. in Robotics Engineering, Chongqing University</p>
+          <p class="contact-line">
             <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu</a>
-            <a href="https://github.com/ssisyg" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="assets/Junlong_Ning_Resume.pdf" download>Resume ↓</a>
-          </div>
+            <span>|</span>
+            <a href="https://github.com/ssisyg" target="_blank" rel="noreferrer">GitHub</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span>|</span>
+            <a href="assets/Junlong_Ning_Resume.pdf">CV</a>
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="research" aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Interests</h2>
+        <div class="section-rule" aria-hidden="true"></div>
+        <p>
+          My research interests lie at the intersection of <strong>Embodied AI, Vision-Language Models (VLMs), and Trustworthy Machine Learning</strong>. I am especially interested in building intelligent systems that can reason reliably and interact safely in complex physical environments.
+        </p>
+
+        <ul class="interest-list">
+          <li>
+            <h3>Uncertainty Quantification &amp; Safe AI</h3>
+            <p>Leveraging Conformal Prediction (CP) and uncertainty estimates to build trustworthy autonomous agents that know <em>when to act</em> and <em>when to ask for human assistance</em>.</p>
+          </li>
+          <li>
+            <h3>Agent Infrastructure &amp; Systems</h3>
+            <p>Building robust agent orchestration, tool-use evaluation pipelines, retrieval-augmented generation systems, and real-time execution architectures.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <div class="section-rule" aria-hidden="true"></div>
+        <p>
+          I am a Master's student in <strong>Artificial Intelligence Engineering (AIE)</strong> at <strong>Carnegie Mellon University (CMU)</strong>, graduating in December 2027. Prior to CMU, I received my B.E. in <strong>Robotics Engineering</strong> from <strong>Chongqing University (CQU)</strong> in 2026.
+        </p>
+        <p>
+          My research goal is to build <strong>reliable, uncertainty-aware, and interactive embodied AI systems</strong> that can seamlessly navigate and reason in complex, dynamic physical environments.
+        </p>
+      </section>
+    </div>
   </main>
 
-  <footer><div class="wrap footer-row"><span>© 2026 Junlong Ning</span><span>Plain HTML/CSS · Hosted on GitHub Pages</span></div></footer>
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Junlong Ning</span>
+      <span>Last updated July 2026</span>
+    </div>
+  </footer>
 </body>
 </html>
