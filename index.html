@@ -2,373 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#2f4356">
-  <meta name="description" content="Junlong Ning is an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working on embodied AI, vision-language models, and trustworthy machine learning.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Junlong Ning is an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working in the TRIO Lab on embodied AI, uncertainty-aware learning, and real-robot deployment.">
   <meta property="og:title" content="Junlong Ning — Personal Website">
   <meta property="og:description" content="Embodied AI, Vision-Language Models, and Trustworthy Machine Learning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ssisyg.github.io/">
-  <title>Junlong Ning — Personal Website</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --navy: #2f4356;
-      --navy-dark: #243646;
-      --ink: #3c4b57;
-      --heading: #2f404e;
-      --muted: #6e7b85;
-      --link: #176b78;
-      --line: #dfe4e7;
-      --paper: #ffffff;
-      --page: #f7f8f8;
-      --max: 940px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 82px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    a:focus-visible {
-      outline: 2px solid #8bb9c0;
-      outline-offset: 4px;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 100;
-      padding: 8px 12px;
-      background: #fff;
-      color: var(--navy);
-      transform: translateY(-160%);
-    }
-
-    .skip-link:focus { transform: translateY(0); }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin-inline: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--navy);
-      color: #fff;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-    }
-
-    nav {
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .brand {
-      color: #fff;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-
-    .brand:hover { text-decoration: none; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #fff;
-      font-size: 13px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    main {
-      min-height: calc(100vh - 130px);
-      background: var(--paper);
-    }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
-      gap: 70px;
-      align-items: center;
-      padding: 78px 0 64px;
-    }
-
-    .name-block {
-      padding-right: 36px;
-      border-right: 1px solid var(--line);
-    }
-
-    h1 {
-      margin: 0;
-      color: #1f2f3b;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(38px, 5vw, 52px);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-    }
-
-    .chinese-name {
-      display: block;
-      margin-top: 10px;
-      color: var(--muted);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-    }
-
-    .bio-lines p {
-      margin: 0 0 7px;
-      color: #55636d;
-      font-size: 17px;
-    }
-
-    .contact-line {
-      margin-top: 24px !important;
-      color: var(--muted) !important;
-      font-size: 15px !important;
-    }
-
-    .contact-line span {
-      margin: 0 8px;
-      color: #a5afb6;
-    }
-
-    section {
-      padding: 42px 0 22px;
-    }
-
-    section + section {
-      padding-top: 48px;
-    }
-
-    h2 {
-      margin: 0 0 20px;
-      color: var(--heading);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      font-weight: 500;
-      line-height: 1.25;
-    }
-
-    .section-rule {
-      width: 48px;
-      height: 2px;
-      margin: -10px 0 28px;
-      background: #91a7b5;
-    }
-
-    section p {
-      margin: 0 0 18px;
-    }
-
-    .interest-list {
-      margin: 27px 0 0;
-      padding: 0;
-      list-style: none;
-      border-top: 1px solid var(--line);
-    }
-
-    .interest-list li {
-      display: grid;
-      grid-template-columns: 245px minmax(0, 1fr);
-      gap: 28px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .interest-list h3 {
-      margin: 0;
-      color: var(--heading);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .interest-list p {
-      margin: 0;
-      color: #596873;
-      font-size: 15px;
-    }
-
-    .about {
-      padding-bottom: 82px;
-    }
-
-    .about p {
-      max-width: 900px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    @media (max-width: 720px) {
-      .container { width: min(calc(100% - 28px), var(--max)); }
-
-      nav { min-height: 54px; }
-
-      .nav-links { gap: 17px; }
-
-      .nav-links li:first-child { display: none; }
-
-      .intro {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 56px 0 40px;
-      }
-
-      .name-block {
-        padding: 0 0 26px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .bio-lines p { font-size: 16px; }
-
-      .contact-line span { margin: 0 5px; }
-
-      section { padding-top: 38px; }
-
-      .interest-list li {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .about { padding-bottom: 62px; }
-
-      .footer-inner {
-        min-height: 82px;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <title>Junlong Ning — Embodied AI &amp; Robot Learning</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
+<body class="systems-lead">
   <header>
-    <nav class="container" aria-label="Main navigation">
-      <a class="brand" href="#home">JUNLONG NING</a>
-      <ul class="nav-links">
-        <li><a href="#research">Research</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="assets/Junlong_Ning_Resume.pdf">CV</a></li>
-      </ul>
-    </nav>
+    <a class="logo" href="#top">JN<span> / embodied AI</span></a>
+    <nav><a href="#thesis">Focus</a><a href="#record">Record</a><a href="#toolkit">Toolkit</a></nav>
+    <a class="header-link" href="mailto:junlongn@andrew.cmu.edu">Contact ↗</a>
   </header>
 
-  <main id="main-content">
-    <div class="container">
-      <section class="intro" id="home" aria-labelledby="name-heading">
-        <div class="name-block">
-          <h1 id="name-heading">Junlong Ning <span class="chinese-name">宁俊龙</span></h1>
+  <main id="top">
+    <section class="dashboard-hero">
+      <div class="hero-copy">
+        <img class="avatar" src="assets/avatar.jpg" alt="Junlong Ning">
+        <p class="eyebrow">EMBODIED AI · ROBOT LEARNING · TRIO LAB, CMU</p>
+        <h1>Build systems that know when to ask.</h1>
+        <p>I'm an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working in Frederike Duembgen's TRIO Lab. My work sits at the intersection of vision-language models, uncertainty quantification, and real-robot deployment — building agents that act confidently and know when to defer.</p>
+        <a class="primary" href="#record">View research record</a>
+      </div>
+      <div class="metric-board">
+        <div class="board-head"><span>OPERATING SNAPSHOT</span><span>TRIO LAB</span></div>
+        <div class="metric"><strong>2</strong><span>papers, incl. 1 first-author</span></div>
+        <div class="metric"><strong>50Hz</strong><span>real-time target, robot control</span></div>
+        <div class="metric"><strong>CQU→CMU</strong><span>robotics to embodied AI</span></div>
+        <div class="board-foot"><i></i>Currently deploying Global-MPPI on a Franka arm</div>
+      </div>
+    </section>
+
+    <section class="thesis" id="thesis">
+      <p class="section-label">01 / FOCUS</p>
+      <div>
+        <h2>Reliable AI needs to know its own uncertainty.</h2>
+        <p>My research interests lie at the intersection of embodied AI, vision-language models, and trustworthy machine learning. I'm especially interested in building intelligent systems that reason reliably and interact safely in complex physical environments — using conformal prediction and uncertainty estimates to help autonomous agents know when to act and when to ask for help, and grounding that reasoning in real hardware rather than simulation alone.</p>
+        <div class="principles">
+          <span>Quantify uncertainty</span>
+          <span>Ground in real hardware</span>
+          <span>Design for safe autonomy</span>
         </div>
-        <div class="bio-lines">
-          <p>M.S. Student in Artificial Intelligence Engineering, Carnegie Mellon University</p>
-          <p>B.E. in Robotics Engineering, Chongqing University</p>
-          <p class="contact-line">
-            <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu</a>
-            <span>|</span>
-            <a href="https://github.com/ssisyg" target="_blank" rel="noreferrer">GitHub</a>
-            <span>|</span>
-            <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span>|</span>
-            <a href="assets/Junlong_Ning_Resume.pdf">CV</a>
-          </p>
+      </div>
+    </section>
+
+    <section class="record" id="record">
+      <div class="record-intro">
+        <p class="section-label">02 / RESEARCH RECORD</p>
+        <h2>Selected work</h2>
+        <p>From vision-language navigation to real-robot trajectory optimization.</p>
+      </div>
+      <div class="outcomes">
+        <article>
+          <span>TRIO LAB, CMU</span>
+          <div>
+            <h3>Global-MPPI real-robot deployment</h3>
+            <p>Deploying a sampling-based trajectory optimizer (KernelSOS + graduated non-convexity + MPPI) from simulation onto a Franka arm — camera calibration, pose estimation, and closed-loop control, working with labmate Zhongqi Wei and advisor Frederike Duembgen.</p>
+          </div>
+          <strong>50Hz</strong>
+        </article>
+        <article>
+          <span>FIRST-AUTHOR PAPER</span>
+          <div>
+            <h3>When2Ask</h3>
+            <p>Uncertainty-aware vision-language navigation using conformal prediction, so an agent can recognize when it should ask for human assistance rather than act on a bad estimate.</p>
+          </div>
+          <strong>VLN</strong>
+        </article>
+        <article>
+          <span>CQU UNDERGRAD THESIS</span>
+          <div>
+            <h3>View2Verify</h3>
+            <p>A dual-stream CLIP + SRM vision-language framework for deepfake detection, advised by Prof. Li Xiangpeng (李向鹏) at Chongqing University.</p>
+          </div>
+          <strong>CLIP</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="toolkit" id="toolkit">
+      <p class="section-label">03 / TOOLKIT</p>
+      <div class="tool-grid">
+        <div>
+          <h3>Robotics</h3>
+          <p>MPPI · trajectory optimization · Franka control · hand-eye calibration</p>
         </div>
-      </section>
+        <div>
+          <h3>Learning</h3>
+          <p>Vision-language models · conformal prediction · uncertainty quantification</p>
+        </div>
+        <div>
+          <h3>Systems</h3>
+          <p>ROS2 · MuJoCo · JAX · PyTorch</p>
+        </div>
+      </div>
+    </section>
 
-      <section id="research" aria-labelledby="research-heading">
-        <h2 id="research-heading">Research Interests</h2>
-        <div class="section-rule" aria-hidden="true"></div>
-        <p>
-          My research interests lie at the intersection of <strong>Embodied AI, Vision-Language Models (VLMs), and Trustworthy Machine Learning</strong>. I am especially interested in building intelligent systems that can reason reliably and interact safely in complex physical environments.
-        </p>
-
-        <ul class="interest-list">
-          <li>
-            <h3>Uncertainty Quantification &amp; Safe AI</h3>
-            <p>Leveraging Conformal Prediction (CP) and uncertainty estimates to build trustworthy autonomous agents that know <em>when to act</em> and <em>when to ask for human assistance</em>.</p>
-          </li>
-          <li>
-            <h3>Agent Infrastructure &amp; Systems</h3>
-            <p>Building robust agent orchestration, tool-use evaluation pipelines, retrieval-augmented generation systems, and real-time execution architectures.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="about" id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About Me</h2>
-        <div class="section-rule" aria-hidden="true"></div>
-        <p>
-          I am a Master's student in <strong>Artificial Intelligence Engineering (AIE)</strong> at <strong>Carnegie Mellon University (CMU)</strong>, graduating in December 2027. Prior to CMU, I received my B.E. in <strong>Robotics Engineering</strong> from <strong>Chongqing University (CQU)</strong> in 2026.
-        </p>
-        <p>
-          My research goal is to build <strong>reliable, uncertainty-aware, and interactive embodied AI systems</strong> that can seamlessly navigate and reason in complex, dynamic physical environments.
-        </p>
-      </section>
-    </div>
+    <section class="contact">
+      <div>
+        <p class="section-label">04 / CONTACT</p>
+        <h2>Let's talk embodied AI.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu ↗</a>
+        <a href="https://github.com/ssisyg" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <span>© 2026 Junlong Ning</span>
-      <span>Last updated July 2026</span>
-    </div>
+    <span>© 2026 Junlong Ning</span>
+    <span>Carnegie Mellon University</span>
   </footer>
 </body>
 </html>
