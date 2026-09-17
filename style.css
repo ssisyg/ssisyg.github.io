@@ -158,6 +158,19 @@ svg {
     line-height: 1.8;
 }
 
+.text-block a,
+.card-subtitle a {
+    color: #c87941;
+    text-decoration: none;
+    border-bottom: 1px solid #e8d5c4;
+}
+
+.text-block a:hover,
+.card-subtitle a:hover {
+    color: #a35e2e;
+    border-bottom-color: #c87941;
+}
+
 /* Interest list */
 .interest-list {
     list-style: none;
