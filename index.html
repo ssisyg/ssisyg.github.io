@@ -1,122 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Junlong Ning is an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working in the TRIO Lab on embodied AI, uncertainty-aware learning, and real-robot deployment.">
-  <meta property="og:title" content="Junlong Ning — Personal Website">
-  <meta property="og:description" content="Embodied AI, Vision-Language Models, and Trustworthy Machine Learning.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ssisyg.github.io/">
-  <title>Junlong Ning — Embodied AI &amp; Robot Learning</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junlong Ning - Personal Homepage</title>
+    <meta name="description" content="Junlong Ning is an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working in the TRIO Lab on embodied AI, vision-language models, and trustworthy machine learning.">
+    <meta name="author" content="Junlong Ning">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Junlong Ning - Personal Homepage">
+    <meta property="og:description" content="Embodied AI, Vision-Language Models, and Trustworthy Machine Learning.">
+    <meta property="og:url" content="https://ssisyg.github.io/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Junlong Ning - Personal Homepage">
+    <meta name="twitter:description" content="Embodied AI, Vision-Language Models, and Trustworthy Machine Learning.">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="systems-lead">
-  <header>
-    <a class="logo" href="#top">JN<span> / embodied AI</span></a>
-    <nav><a href="#thesis">Focus</a><a href="#record">Record</a><a href="#toolkit">Toolkit</a></nav>
-    <a class="header-link" href="mailto:junlongn@andrew.cmu.edu">Contact ↗</a>
-  </header>
+<body>
+    <!-- Main container -->
+    <div class="container">
 
-  <main id="top">
-    <section class="dashboard-hero">
-      <div class="hero-copy">
-        <img class="avatar" src="assets/avatar.jpg" alt="Junlong Ning">
-        <p class="eyebrow">EMBODIED AI · ROBOT LEARNING · TRIO LAB, CMU</p>
-        <h1>Build systems that know when to ask.</h1>
-        <p>I'm an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University, working in Frederike Duembgen's TRIO Lab. My work sits at the intersection of vision-language models, uncertainty quantification, and real-robot deployment — building agents that act confidently and know when to defer.</p>
-        <a class="primary" href="#record">View research record</a>
-      </div>
-      <div class="metric-board">
-        <div class="board-head"><span>OPERATING SNAPSHOT</span><span>TRIO LAB</span></div>
-        <div class="metric"><strong>2</strong><span>papers, incl. 1 first-author</span></div>
-        <div class="metric"><strong>50Hz</strong><span>real-time target, robot control</span></div>
-        <div class="metric"><strong>CQU→CMU</strong><span>robotics to embodied AI</span></div>
-        <div class="board-foot"><i></i>Currently deploying Global-MPPI on a Franka arm</div>
-      </div>
-    </section>
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <img src="assets/avatar.jpg" alt="Junlong Ning" class="sidebar-photo">
+                <h1 class="sidebar-name">Junlong Ning</h1>
+                <p class="sidebar-title">M.S. Student, AI Engineering</p>
+                <p class="sidebar-affiliation">Carnegie Mellon University</p>
 
-    <section class="thesis" id="thesis">
-      <p class="section-label">01 / FOCUS</p>
-      <div>
-        <h2>Reliable AI needs to know its own uncertainty.</h2>
-        <p>My research interests lie at the intersection of embodied AI, vision-language models, and trustworthy machine learning. I'm especially interested in building intelligent systems that reason reliably and interact safely in complex physical environments — using conformal prediction and uncertainty estimates to help autonomous agents know when to act and when to ask for help, and grounding that reasoning in real hardware rather than simulation alone.</p>
-        <div class="principles">
-          <span>Quantify uncertainty</span>
-          <span>Ground in real hardware</span>
-          <span>Design for safe autonomy</span>
-        </div>
-      </div>
-    </section>
+                <nav class="sidebar-nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#research" class="nav-link">Research</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
 
-    <section class="record" id="record">
-      <div class="record-intro">
-        <p class="section-label">02 / RESEARCH RECORD</p>
-        <h2>Selected work</h2>
-        <p>From vision-language navigation to real-robot trajectory optimization.</p>
-      </div>
-      <div class="outcomes">
-        <article>
-          <span>TRIO LAB, CMU</span>
-          <div>
-            <h3>Global-MPPI real-robot deployment</h3>
-            <p>Deploying a sampling-based trajectory optimizer (KernelSOS + graduated non-convexity + MPPI) from simulation onto a Franka arm — camera calibration, pose estimation, and closed-loop control, working with labmate Zhongqi Wei and advisor Frederike Duembgen.</p>
-          </div>
-          <strong>50Hz</strong>
-        </article>
-        <article>
-          <span>FIRST-AUTHOR PAPER</span>
-          <div>
-            <h3>When2Ask</h3>
-            <p>Uncertainty-aware vision-language navigation using conformal prediction, so an agent can recognize when it should ask for human assistance rather than act on a bad estimate.</p>
-          </div>
-          <strong>VLN</strong>
-        </article>
-        <article>
-          <span>CQU UNDERGRAD THESIS</span>
-          <div>
-            <h3>View2Verify</h3>
-            <p>A dual-stream CLIP + SRM vision-language framework for deepfake detection, advised by Prof. Li Xiangpeng (李向鹏) at Chongqing University.</p>
-          </div>
-          <strong>CLIP</strong>
-        </article>
-      </div>
-    </section>
+                <div class="sidebar-social">
+                    <a href="mailto:junlongn@andrew.cmu.edu" class="social-icon" title="Email" aria-label="Email">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg" alt="Email icon">
+                    </a>
+                    <a href="https://github.com/ssisyg" target="_blank" class="social-icon" title="GitHub" aria-label="GitHub">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn icon">
+                    </a>
+                </div>
+            </div>
+        </aside>
 
-    <section class="toolkit" id="toolkit">
-      <p class="section-label">03 / TOOLKIT</p>
-      <div class="tool-grid">
-        <div>
-          <h3>Robotics</h3>
-          <p>MPPI · trajectory optimization · Franka control · hand-eye calibration</p>
-        </div>
-        <div>
-          <h3>Learning</h3>
-          <p>Vision-language models · conformal prediction · uncertainty quantification</p>
-        </div>
-        <div>
-          <h3>Systems</h3>
-          <p>ROS2 · MuJoCo · JAX · PyTorch</p>
-        </div>
-      </div>
-    </section>
+        <!-- Main content -->
+        <main class="main-content">
 
-    <section class="contact">
-      <div>
-        <p class="section-label">04 / CONTACT</p>
-        <h2>Let's talk embodied AI.</h2>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu ↗</a>
-        <a href="https://github.com/ssisyg" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/junlong-ning-204723350/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      </div>
-    </section>
-  </main>
+            <!-- Home section -->
+            <section id="home" class="content-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-text">
+                    I am an M.S. student in <strong>Artificial Intelligence Engineering</strong> at Carnegie Mellon
+                    University, working in Frederike Duembgen's TRIO Lab. My research sits at the intersection of
+                    embodied AI, vision-language models, and trustworthy machine learning, with a particular
+                    interest in building intelligent systems that reason reliably and interact safely in complex
+                    physical environments. Prior to CMU, I received my B.E. in Robotics Engineering from Chongqing
+                    University in 2026.
+                </p>
+            </section>
 
-  <footer>
-    <span>© 2026 Junlong Ning</span>
-    <span>Carnegie Mellon University</span>
-  </footer>
+            <!-- Research section -->
+            <section id="research" class="content-section">
+                <h2 class="section-title">Research Interests</h2>
+                <ul class="research-list">
+                    <li><strong>Uncertainty Quantification &amp; Safe AI:</strong> Leveraging conformal prediction and uncertainty estimates to build trustworthy autonomous agents that know when to act and when to ask for human assistance</li>
+                    <li><strong>Embodied AI &amp; Robot Learning:</strong> Real-robot deployment of sampling-based trajectory optimization, camera calibration, and closed-loop control on manipulator arms</li>
+                    <li><strong>Vision-Language Models:</strong> Applying VLMs to navigation, perception, and multimodal reasoning tasks</li>
+                </ul>
+            </section>
+
+            <!-- Publications section -->
+            <section id="publications" class="content-section">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="pub-item">
+                    <div class="pub-title">When2Ask: Uncertainty-Aware Vision-Language Navigation via Conformal Prediction</div>
+                    <div class="pub-authors">Junlong Ning, Chen Feng, et al.</div>
+                    <div class="pub-venue">First-author paper</div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">View2Verify: A Dual-Stream CLIP + SRM Vision-Language Framework for Deepfake Detection</div>
+                    <div class="pub-authors">Junlong Ning (advised by Prof. Li Xiangpeng)</div>
+                    <div class="pub-venue">Undergraduate thesis, Chongqing University</div>
+                </div>
+            </section>
+
+            <!-- Education section -->
+            <section id="education" class="content-section">
+                <h2 class="section-title">Education</h2>
+                <div class="edu-item">
+                    <div class="edu-degree">M.S. in Artificial Intelligence Engineering</div>
+                    <div class="edu-school">Carnegie Mellon University, Pittsburgh, PA</div>
+                    <div class="edu-period">Expected: Dec 2027</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">B.E. in Robotics Engineering</div>
+                    <div class="edu-school">Chongqing University, Chongqing, China</div>
+                    <div class="edu-period">Graduated 2026</div>
+                </div>
+            </section>
+
+            <!-- Experience section -->
+            <section id="experience" class="content-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="exp-item">
+                    <div class="exp-title">Graduate Researcher</div>
+                    <div class="exp-company">TRIO Lab, Carnegie Mellon University · Advisor: Frederike Duembgen</div>
+                    <div class="exp-period">2026 - Present</div>
+                    <div class="exp-desc">Real-robot deployment of Global-MPPI, a sampling-based trajectory optimizer combining KernelSOS, graduated non-convexity, and MPPI, on a Franka arm — including camera calibration, pose estimation, and closed-loop control. Working with labmate Zhongqi Wei.</div>
+                </div>
+            </section>
+
+            <!-- Contact section -->
+            <section id="contact" class="content-section">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-text">
+                    TRIO Lab<br>
+                    Carnegie Mellon University<br>
+                    Pittsburgh, PA, USA<br><br>
+                    Email: <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu</a>
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>Last updated: <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+        // Set current date
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('current-date').textContent = dateStr;
+
+        // Simple navigation highlighting
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
