@@ -20,24 +20,23 @@
     <!-- Main container -->
     <div class="container">
 
-        <!-- Profile header -->
-        <header class="profile-header">
-            <img src="assets/avatar.jpg" alt="Junlong Ning" class="avatar">
-            <div class="profile-info">
-                <h1 class="name">Junlong Ning</h1>
-                <p class="tagline">M.S. Student in AI Engineering, Carnegie Mellon University</p>
-            </div>
-        </header>
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <img src="assets/avatar.jpg" alt="Junlong Ning" class="sidebar-photo">
+                <h1 class="sidebar-name">Junlong Ning</h1>
+                <p class="sidebar-title">M.S. Student, AI Engineering</p>
+                <p class="sidebar-affiliation">Carnegie Mellon University</p>
 
-        <!-- Contact info bar -->
-        <div class="info-bar">
-            <div class="info-item">
-                <span class="info-label">Email</span>
-                <a href="mailto:junlongn@andrew.cmu.edu" class="info-value">junlongn@andrew.cmu.edu</a>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Links</span>
-                <div class="links-group">
+                <nav class="sidebar-nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#research" class="nav-link">Research</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="sidebar-social">
                     <a href="mailto:junlongn@andrew.cmu.edu" class="social-icon" title="Email" aria-label="Email">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg" alt="Email icon">
                     </a>
@@ -49,70 +48,93 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <!-- Main content -->
         <main class="main-content">
 
-            <!-- About section -->
-            <section class="content-section">
-                <h2 class="section-heading">About Me</h2>
-                <p class="text-block">
-                    I am an M.S. student in Artificial Intelligence Engineering at Carnegie Mellon University,
-                    working in <a href="https://duembgen.github.io/" target="_blank" rel="noopener">Frederike Duembgen</a>'s TRIO Lab. My research focuses on uncertainty in learned models and
-                    robotic systems, and on global optimization methods for planning and control. Prior to CMU,
-                    I received my B.E. in Robotics Engineering from Chongqing University in 2026.
+            <!-- Home section -->
+            <section id="home" class="content-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-text">
+                    I am an M.S. student in <strong>Artificial Intelligence Engineering</strong> at Carnegie Mellon
+                    University, working in <a href="https://duembgen.github.io/" target="_blank" rel="noopener">Frederike Duembgen</a>'s TRIO Lab. My research focuses on uncertainty in
+                    learned models and robotic systems, and on global optimization methods for planning and
+                    control. Prior to CMU, I received my B.E. in Robotics Engineering from Chongqing University
+                    in 2026.
                 </p>
             </section>
 
-            <!-- Interests section -->
-            <section class="content-section">
-                <h2 class="section-heading">Research Interests</h2>
-                <ul class="interest-list">
-                    <li>Uncertainty in Models &amp; Robots: Quantifying and leveraging uncertainty in learned models and robotic systems, so autonomous agents know when to trust their own estimates</li>
-                    <li>Global Optimization: Sampling-based global optimization for trajectory planning and control, including real-robot deployment</li>
+            <!-- Research section -->
+            <section id="research" class="content-section">
+                <h2 class="section-title">Research Interests</h2>
+                <ul class="research-list">
+                    <li><strong>Uncertainty in Models &amp; Robots:</strong> Quantifying and leveraging uncertainty in learned models and robotic systems, so autonomous agents know when to trust their own estimates</li>
+                    <li><strong>Global Optimization:</strong> Sampling-based global optimization for trajectory planning and control, including real-robot deployment</li>
                 </ul>
             </section>
 
             <!-- Education section -->
-            <section class="content-section">
-                <h2 class="section-heading">Education</h2>
-                <div class="card">
-                    <div class="card-title">M.S. in Artificial Intelligence Engineering</div>
-                    <div class="card-subtitle">Carnegie Mellon University, Pittsburgh, PA<br>
-                    Expected: Dec 2027</div>
+            <section id="education" class="content-section">
+                <h2 class="section-title">Education</h2>
+                <div class="edu-item">
+                    <div class="edu-degree">M.S. in Artificial Intelligence Engineering</div>
+                    <div class="edu-school">Carnegie Mellon University, Pittsburgh, PA</div>
+                    <div class="edu-period">Expected: Dec 2027</div>
                 </div>
-                <div class="card">
-                    <div class="card-title">B.E. in Robotics Engineering</div>
-                    <div class="card-subtitle">Chongqing University, Chongqing, China<br>
-                    Graduated 2026</div>
+                <div class="edu-item">
+                    <div class="edu-degree">B.E. in Robotics Engineering</div>
+                    <div class="edu-school">Chongqing University, Chongqing, China</div>
+                    <div class="edu-period">Graduated 2026</div>
                 </div>
             </section>
 
             <!-- Experience section -->
-            <section class="content-section">
-                <h2 class="section-heading">Experience</h2>
-                <div class="card">
-                    <div class="card-title">Graduate Researcher</div>
-                    <div class="card-subtitle">TRIO Lab, Carnegie Mellon University · Advisor: <a href="https://duembgen.github.io/" target="_blank" rel="noopener">Frederike Duembgen</a><br>
-                    2026 - Present | Real-robot deployment of Global-MPPI, a sampling-based trajectory optimizer combining KernelSOS, graduated non-convexity, and MPPI, on a Franka arm — including camera calibration, pose estimation, and closed-loop control. Working with labmate Zhongqi Wei.</div>
+            <section id="experience" class="content-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="exp-item">
+                    <div class="exp-title">Graduate Researcher</div>
+                    <div class="exp-company">TRIO Lab, Carnegie Mellon University · Advisor: <a href="https://duembgen.github.io/" target="_blank" rel="noopener">Frederike Duembgen</a></div>
+                    <div class="exp-period">2026 - Present</div>
+                    <div class="exp-desc">Real-robot deployment of Global-MPPI, a sampling-based trajectory optimizer combining KernelSOS, graduated non-convexity, and MPPI, on a Franka arm — including camera calibration, pose estimation, and closed-loop control. Working with labmate Zhongqi Wei.</div>
                 </div>
             </section>
 
+            <!-- Contact section -->
+            <section id="contact" class="content-section">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-text">
+                    TRIO Lab<br>
+                    Carnegie Mellon University<br>
+                    Pittsburgh, PA, USA<br><br>
+                    Email: <a href="mailto:junlongn@andrew.cmu.edu">junlongn@andrew.cmu.edu</a>
+                </p>
+            </section>
+
         </main>
-
-        <!-- Footer -->
-        <footer class="page-footer">
-            <p>Last updated: <span id="current-date"></span></p>
-        </footer>
-
     </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>Last updated: <span id="current-date"></span></p>
+    </footer>
 
     <script>
         // Set current date
         const now = new Date();
         const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         document.getElementById('current-date').textContent = dateStr;
+
+        // Simple navigation highlighting
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
