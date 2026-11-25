@@ -35,7 +35,6 @@ svg {
 .container {
     display: flex;
     min-height: 100vh;
-    position: relative;
 }
 
 /* Sidebar */
@@ -44,10 +43,8 @@ svg {
     background: #f8f9fa;
     border-right: 1px solid #e0e0e0;
     padding: 40px 30px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    position: fixed;
+    height: 100vh;
     overflow-y: auto;
 }
 
