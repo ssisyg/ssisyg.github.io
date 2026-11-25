@@ -30,9 +30,9 @@
 
                 <nav class="sidebar-nav">
                     <a href="#home" class="nav-link active">Home</a>
-                    <a href="#research" class="nav-link">Research</a>
                     <a href="#education" class="nav-link">Education</a>
-                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#publication" class="nav-link">Publication</a>
+                    <a href="#robotics" class="nav-link">Robotics</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </nav>
 
@@ -53,7 +53,7 @@
         <!-- Main content -->
         <main class="main-content">
 
-            <!-- Home section -->
+            <!-- Home section (About + Research Interests) -->
             <section id="home" class="content-section">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-text">
@@ -63,18 +63,15 @@
                     control. Prior to CMU, I received my B.E. in Robotics Engineering from Chongqing University
                     in 2026. Outside of research, I enjoy running, swimming, and listening to music.
                 </p>
-            </section>
 
-            <!-- Research section -->
-            <section id="research" class="content-section">
-                <h2 class="section-title">Research Interests</h2>
+                <h3 class="sub-title">Research Interests</h3>
                 <ul class="research-list">
                     <li><strong>Uncertainty in Models &amp; Robots:</strong> Quantifying and leveraging uncertainty in learned models and robotic systems, so autonomous agents know when to trust their own estimates</li>
                     <li><strong>Global Optimization:</strong> Sampling-based global optimization for trajectory planning and control, including real-robot deployment</li>
                 </ul>
             </section>
 
-            <!-- Education section -->
+            <!-- Education section (with research experience) -->
             <section id="education" class="content-section">
                 <h2 class="section-title">Education</h2>
                 <div class="edu-item">
@@ -87,11 +84,8 @@
                     <div class="edu-school">Chongqing University, Chongqing, China</div>
                     <div class="edu-period">Graduated 2026</div>
                 </div>
-            </section>
 
-            <!-- Experience section -->
-            <section id="experience" class="content-section">
-                <h2 class="section-title">Experience</h2>
+                <h3 class="sub-title">Research Experience</h3>
                 <div class="exp-item">
                     <div class="exp-title">Research Assistant</div>
                     <div class="exp-company">New York University · Advised by Prof. Chen Feng and Prof. Saining Xie</div>
@@ -103,6 +97,58 @@
                     <div class="exp-company">University of California, Irvine · Advised by Prof. Yasser Shoukry</div>
                     <div class="exp-period">06/2025 - 09/2025</div>
                     <div class="exp-desc">Built an autonomous navigation stack (LiDAR perception, PID control, SLAM, RRT planning) for the RoboRacer competition on an NVIDIA Jetson platform.</div>
+                </div>
+            </section>
+
+            <!-- Publication section -->
+            <section id="publication" class="content-section">
+                <h2 class="section-title">Publication</h2>
+                <div class="pub-item">
+                    <div class="pub-title">Biomimetic Microrobots for Navigation in Viscous Fluids: Inspired by Bacterial Locomotion</div>
+                    <div class="pub-authors"><strong>Junlong Ning</strong></div>
+                    <div class="pub-venue">IEEE International Conference on Automation, Robotics and Applications (ICARA), 2025</div>
+                    <!-- Add a link when you have one:
+                    <div class="pub-links"><a href="https://...">Paper</a></div> -->
+                </div>
+            </section>
+
+            <!-- Robotics section: demo cards -->
+            <section id="robotics" class="content-section">
+                <h2 class="section-title">Robotics</h2>
+                <div class="demo-grid">
+
+                    <article class="demo-card">
+                        <div class="demo-media">
+                            <video src="assets/videos/roboracer.mp4"
+                                   poster="assets/videos/roboracer.jpg"
+                                   autoplay muted loop playsinline preload="metadata"></video>
+                        </div>
+                        <h3 class="demo-title">F1/10 LiDAR Obstacle Avoidance</h3>
+                        <p class="demo-desc">
+                            A ROS pipeline for obstacle avoidance and overtaking on an F1/10 race car using only 2D LiDAR:
+                            cluster-based obstacle detection, Kalman-filter tracking, and a state machine that switches
+                            between lane following, static avoidance and overtaking.
+                        </p>
+                        <div class="demo-links">
+                            <a href="https://github.com/ssisyg/F1-10" target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </article>
+
+                    <!-- Demo 2: Global-MPPI real robot. Uncomment and fill in once the video is ready.
+                    <article class="demo-card">
+                        <div class="demo-media">
+                            <video src="assets/videos/global_mppi.mp4"
+                                   poster="assets/videos/global_mppi.jpg"
+                                   autoplay muted loop playsinline preload="metadata"></video>
+                        </div>
+                        <h3 class="demo-title">Global-MPPI on a Real Robot</h3>
+                        <p class="demo-desc">One-sentence description here.</p>
+                        <div class="demo-links">
+                            <a href="https://..." target="_blank" rel="noopener">Paper</a>
+                        </div>
+                    </article>
+                    -->
+
                 </div>
             </section>
 
@@ -141,6 +187,21 @@
                 document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Play demo videos only while they are on screen
+        const demoVideos = document.querySelectorAll('.demo-media video');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play().catch(() => {});
+                    } else {
+                        entry.target.pause();
+                    }
+                });
+            }, { threshold: 0.25 });
+            demoVideos.forEach(v => io.observe(v));
+        }
     </script>
 </body>
 </html>
