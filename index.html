@@ -163,16 +163,38 @@
         const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         document.getElementById('current-date').textContent = dateStr;
 
-        // Simple navigation highlighting
-        document.querySelectorAll('.nav-link').forEach(link => {
+        // Navigation: smooth scroll on click, and highlight the section being viewed while scrolling
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = Array.from(navLinks).map(l => document.getElementById(l.getAttribute('href').substring(1)));
+
+        function setActive(id) {
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        }
+
+        navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
                 const targetId = this.getAttribute('href').substring(1);
+                setActive(targetId);
                 document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        function updateActiveOnScroll() {
+            let current = sections[0].id;
+            const line = window.innerHeight * 0.3;   // a section counts once its top passes 30% of the screen
+            sections.forEach(sec => {
+                if (sec && sec.getBoundingClientRect().top <= line) current = sec.id;
+            });
+            // at the very bottom of the page, the last section is active
+            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+                current = sections[sections.length - 1].id;
+            }
+            setActive(current);
+        }
+        window.addEventListener('scroll', updateActiveOnScroll, { passive: true });
+        window.addEventListener('resize', updateActiveOnScroll);
+        updateActiveOnScroll();
 
         // Play demo videos only while they are on screen
         const demoVideos = document.querySelectorAll('.demo-media video');
